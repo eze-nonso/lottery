@@ -1,0 +1,80 @@
+<div [@pageInitialized]="pageLoaded"
+     [ngStyle.gt-sm]="bgImage"
+     [ngStyle]="bgImageSmall"
+     class="lottery-container"
+     ngClass.lt-md="small">
+  <div class="top-overlay"></div>
+  <div class="bottom-overlay">
+  </div>
+  <div class="stars" fxLayout
+       fxLayoutAlign="center center">
+    <div *ngFor="let star of stars; let index=index; trackBy: trackByFn" [ngStyle]="animationDelay"
+         class="random-wrapper" fxLayout
+         fxLayoutAlign="center center">
+      <div [ngStyle]="getStarStyle(star)"
+           class="random" fxLayout
+           fxLayoutAlign="center center">
+        <div *ngFor="let item of three; let index=index; trackBy: trackByFn"
+             [ngStyle]="animationDelay"
+             class="ripple">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rainbow"></div>
+  <div class="left-coin">
+    <img alt="Left coin" src="assets/images/coin-left.png">
+  </div>
+  <div class="right-coin">
+    <img alt="Right coin" src="assets/images/coin-right.png">
+  </div>
+  <div [ngStyle.gt-sm]="coinPot" [ngStyle]="coinPotSmall" class="coin-pot"></div>
+  <div class="rays" fxLayout fxLayoutAlign="center center">
+    <div *ngFor="let item of nine; let index = index; trackBy: trackByFn" [ngStyle]="rotate(index)"
+         class="ray"></div>
+  </div>
+  <div class="top" fxFlexAlign="start" fxLayout fxLayoutAlign="space-between">
+    <img alt="Logo" class="logo" src="assets/images/logo.png">
+    <div class="time" fxLayout fxLayoutAlign="start stretch" fxLayoutGap="10px">
+      <mat-icon svgIcon="calendar"></mat-icon>
+      <p><strong>Day {{currentDay}}</strong><br> of {{totalDays}}</p>
+    </div>
+  </div>
+  <div class="main">
+    <div class="cta-wrapper" ngClass.lt-sm="d-none">
+      <h1 class="cta">
+        <div>Unlock to</div>
+      </h1>
+      <h1 class="cta"><strong>Power your dreams!</strong>
+      </h1>
+    </div>
+    <div class="cta-wrapper small" ngClass.gt-xs="d-none">
+      <h1 class="cta">Unlock to <strong>Power your dreams!</strong>
+      </h1>
+    </div>
+    <div class="sub-wrapper">
+      <p class="sub" ngClass.lt-md="small">Stand a chance to win <br
+        fxHide.lt-sm><strong>N3,000,000</strong>
+        everyday for
+        the next 5 days</p>
+    </div>
+    <div class="instructions">
+      <img alt="How to play" class="how-to-play" src="assets/images/how-to-play.png">
+      <ol>
+        <li>Guess the right combination of numbers</li>
+        <li>Win <strong>N3,000,000</strong> instantly</li>
+      </ol>
+      <p class="catch-line">Sounds unbelievable? Well, guess right & see for yourself!</p>
+      <div class="idea" fxLayout fxLayoutGap="5px">
+        <div>
+          <mat-icon svgIcon="bulb"></mat-icon>
+        </div>
+        <p>Think well before you guess. You have only 2 attempts per day and even after you win, you can come back the
+          next day to try for another jackpot!</p>
+      </div>
+    </div>
+    <button color="accent" mat-flat-button>Play The Game
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>
